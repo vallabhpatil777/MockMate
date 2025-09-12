@@ -1,4 +1,4 @@
-Project is still in progress : https://mock-mate-1u4gvmrak-vallabh-patils-projects.vercel.app/interview
+Project is still in progress : https://mock-mate-1u4gvmrak-vallabh-patils-projects.vercel.app/
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
