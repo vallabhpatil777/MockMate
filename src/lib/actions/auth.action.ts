@@ -7,6 +7,13 @@ import { CollectionReference, DocumentData } from "firebase-admin/firestore";
 import { use } from "react";
 
 
+interface AppUser {
+    uid: string
+    name?: string
+    email?: string
+  }
+  
+
 const oneWeek = 60 * 60 * 24 * 7 ;
 
 export async function signUp (params : SignUpParams){
@@ -85,7 +92,7 @@ cookieStore.set('session', sessionCookie, {httpOnly: true, maxAge: oneWeek, secu
 }
 
 
-export async function getCurrentUser(): Promise<User | null> {
+export async function getCurrentUser(): Promise<AppUser | null> {
 
 
     const cookieStore = await cookies();
@@ -107,7 +114,7 @@ export async function getCurrentUser(): Promise<User | null> {
             ...userRecord.data(),
             uid:userRecord.id
 
-        } as User;
+        } as AppUser;
         
     } catch (error) {
         console.error(error);
@@ -119,5 +126,12 @@ export async function getCurrentUser(): Promise<User | null> {
 export async function isAuthenticated() {
     const user = await getCurrentUser();
     return !!user;
+
+}
+
+export async function getInterviewByUserId(userId: string): Promise<Interview[] | null> {
+const interviews = await db.collection('interviews').where('userId', '==', userId).orderBy('createdAt','desc').get();
+
+return interviews.docs.map((doc) => ({id: doc.id, ...doc.data()})) as Interview[];
 
 }
