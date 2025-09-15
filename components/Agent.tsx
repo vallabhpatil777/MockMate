@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { set } from 'zod';
 import { ca } from 'zod/locales';
+import { interviewer } from '../constants';
 
 
 
@@ -25,7 +26,7 @@ enum CallStatus {
 }
 
 
-const Agent = ({userName, userId, type} : AgentProps) => {
+const Agent = ({userName, userId, type, interviewId, questions} : AgentProps) => {
 
   const router = useRouter();
   const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
@@ -67,7 +68,11 @@ const Agent = ({userName, userId, type} : AgentProps) => {
   },[]) 
 
   useEffect(() => {
-    if(callStatus === CallStatus.FINISHED) router.push('/');
+    if (callStatus === CallStatus.FINISHED && type === "generate" ) { router.push('/') }
+
+    else {
+      handleGenerateFeedback(messages);
+    };
 
 
   },[callStatus, messages,type,userId])
@@ -76,9 +81,21 @@ const Agent = ({userName, userId, type} : AgentProps) => {
 
 
     setCallStatus(CallStatus.CONNECTING);
+
+
     console.log("Starting call with userName:", userName, "userId:", userId);
+
+    if (type === "generate") {
     await vapi.start(undefined, undefined, undefined,process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {variableValues: {username : userName, userid : userId}});
   }
+  else {
+    let formattedQuestions = '';
+    if (questions && questions.length > 0) {
+      formattedQuestions = questions.map((question) => - `- ${question}`).join('\n');
+    }
+    await vapi.start(interviewer, {variableValues: {username : userName, userid : userId, interviewid : interviewId, questions : formattedQuestions}});
+  }
+}
   const handleDisconnect = async () => {
 
     setCallStatus(CallStatus.FINISHED)
@@ -86,6 +103,21 @@ const Agent = ({userName, userId, type} : AgentProps) => {
     await vapi.stop()
   }
 
+  const handleGenerateFeedback = async (messages : SavedMessage[]) => {
+    console.log("Generating feedback here.");
+    const {success,id} = {
+      success: true,
+      id : 'dummy-feedback-id'
+    }
+
+    if (success && id) {
+      router.push(`/interview/${interviewId}/feedback`);
+
+    } else {
+      console.log("Error generating feedback");
+      router.push('/');
+    }
+  }
   const latestMessage = messages[messages.length -1]?.content;
   const isCallInactiveOrFinished = callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
 

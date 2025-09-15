@@ -9,10 +9,11 @@ const page = async () => {
     <h3>
         Interview Generation
     </h3>
-    <Agent userName={user?.name!} userId={user?.uid!} type="generate"></Agent>
+    <Agent userName={user?.name!} userId={user?.id!} type="generate"></Agent>
     
     </>
   )
 }
 
 export default page
+

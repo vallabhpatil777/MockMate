@@ -4,16 +4,16 @@ import Link from 'next/link'
 import React from 'react'
 import { dummyInterviews } from '../../../constants'
 import InterviewCard from '../../../components/InterviewCard'
-import { getCurrentUser, getInterviewByUserId, getLatestInterview } from '@/lib/actions/auth.action'
-
+import {  getInterviewByUserId, getLatestInterview } from '@/lib/actions/general.action'
+import { getCurrentUser } from '@/lib/actions/auth.action'
 const page = async () => {
 
   const user = await getCurrentUser();
 
   const [userInterviews ,latestInterview] = await Promise.all([
 
-    await getInterviewByUserId( user?.uid!),
-    getLatestInterview({userId: user?.uid!})
+    await getInterviewByUserId( user?.id!),
+    getLatestInterview({userId: user?.id!})
   ]);
  
   const hasPastInterviews = userInterviews?.length! > 0;
