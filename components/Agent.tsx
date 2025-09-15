@@ -111,7 +111,7 @@ const Agent = ({userName, userId, type, interviewId, questions} : AgentProps) =>
     }
 
     if (success && id) {
-      router.push(`/interview/${interviewId}/feedback`);
+      router.push(`/interview/${interviewId}`);
 
     } else {
       console.log("Error generating feedback");
