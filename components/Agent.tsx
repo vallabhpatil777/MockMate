@@ -91,7 +91,7 @@ const Agent = ({userName, userId, type, interviewId, questions} : AgentProps) =>
   else {
     let formattedQuestions = '';
     if (questions && questions.length > 0) {
-      formattedQuestions = questions.map((question) => - `- ${question}`).join('\n');
+      formattedQuestions = questions.map((question) => `- ${question}`).join('\n');
     }
     await vapi.start(interviewer, {variableValues: {username : userName, userid : userId, interviewid : interviewId, questions : formattedQuestions}});
   }
@@ -111,7 +111,7 @@ const Agent = ({userName, userId, type, interviewId, questions} : AgentProps) =>
     }
 
     if (success && id) {
-      router.push(`/interview/${interviewId}`);
+      router.push(`/interview/`);
 
     } else {
       console.log("Error generating feedback");
