@@ -61,6 +61,20 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 }
+.btn-logout {
+  background-color: #ff4d4f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #d9363e;
+}
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -308,6 +322,7 @@
 
 @utility blue-gradient-dark {
   @apply bg-gradient-to-b from-[#171532] to-[#08090D];
+
 }
 
 @utility blue-gradient {

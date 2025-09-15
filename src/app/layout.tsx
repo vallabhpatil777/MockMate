@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: "MockMate",
   description: "An AI-powered mock interview platform to ace your interviews",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
