@@ -134,6 +134,9 @@ const Agent = ({
 
       await vapi.start(interviewer, {
         variableValues: {
+          username: userName,
+          userid: userId,
+          interviewId : interviewId,
           questions: formattedQuestions,
         },
       });
