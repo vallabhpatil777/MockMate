@@ -25,6 +25,7 @@ const page = async () => {
     <>
     <section className='card-cta bg-gradient-to-bl from-slate-50/50 via-white/30 to-white/50' >
       <div className='flex flex-col gap-6 max-w-lg'>
+        <h2>Welcome {user?.name}</h2>
       <h2>Get Ready for AI Powered Mock Interview with Feedback</h2>
       <p className='text-muted-foreground'>Join MockMate today and take the first step towards acing your job interviews with confidence and get instant feedback</p>
       <Button asChild className='btn-primary max-sm:w-full'>
