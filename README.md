@@ -33,7 +33,7 @@ MockMate helps candidates prepare for job interviews by simulating AI-driven moc
 - Or go to `/sign-in` if you already have an account  
 
 ### 2. Start an Interview  
-- From the homepage, click **"Start an Interview"**  
+- From the homepage, click **"Create an Interview"**  
 - The AI interviewer will begin asking specific questions in order to create well-tailored interview
 
 ### 3. Receive Feedback  

@@ -28,7 +28,7 @@ const page = async () => {
       <h2>Get Ready for AI Powered Mock Interview with Feedback</h2>
       <p className='text-muted-foreground'>Join MockMate today and take the first step towards acing your job interviews with confidence and get instant feedback</p>
       <Button asChild className='btn-primary max-sm:w-full'>
-        <Link href='/interview'>Start an Interview</Link>
+        <Link href='/interview'>Create an Interview</Link>
       </Button>
       </div>
       <Image src='/robot.png' alt='robot-dude' width={800} height={800} className='max-sm:hidden' />
