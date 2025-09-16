@@ -86,14 +86,14 @@ const AuthForm = ({type}: {type:FormType}) => {
     <div className="card-border lg:min-w-[566px]">
         <div className="flex flex-col gap-6 card py-14 px-10">
             <div className="flex flex-row gap-2 justify-center"><Image src={logo} alt="logo" height={32} width={38}/><h2 className="text-primary-100">MockMate</h2></div>
-            <h3> Practice Job Interview with AI</h3>
+            <h4> Practice Job Interview with AI</h4>
 
 
             <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
         {!isSignIn && <FormField control={form.control} name="name" label="Name" placeholder="Your Name" />}
         <FormField control={form.control} name="email" label="Email" placeholder="Enter your email" type="email" />
-        <FormField control={form.control} name="password" label="Password" placeholder="Enter your Password" type="password" />
+        <FormField control={form.control} name="password" label="Password" placeholder="Enter your password" type="password" />
         <Button className="btn" type="submit">{isSignIn ? 'Sign In' : 'Create an Account'}</Button>
       </form>
     </Form>
