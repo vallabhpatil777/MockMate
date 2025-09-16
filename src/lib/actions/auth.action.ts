@@ -82,7 +82,18 @@ export async function signIn (params: SignInParams){
 }
 
 
-
+export async function signOut() {
+    const cookieStore = await cookies();
+    cookieStore.set("session", "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 0,
+      path: "/",
+    });
+  
+    return { success: true, message: "Signed out successfully." };
+  }
 
 export async function setSessionCookie(idToken: string){
 const cookieStore = await cookies();
