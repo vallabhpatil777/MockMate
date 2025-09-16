@@ -71,13 +71,23 @@ export async function getInterviewById(id: string): Promise<Interview | null> {
         finalAssessment,
         createdAt: new Date().toISOString(),
       });
-        return { success: true, feedbackId: feedback.id };
+    
+      let feedbackRef;
+
+      if (feedbackId) {
+        feedbackRef = db.collection("feedback").doc(feedbackId);
+      } else {
+        feedbackRef = db.collection("feedback").doc();
+      }
+  
+      await feedbackRef.set(feedback);
+  
+      return { success: true, feedbackId: feedbackRef.id };
+    } catch (error) {
+      console.error("Error saving feedback:", error);
+      return { success: false };
     }
-        catch (error) {
-        console.error("Error saving feedback:", error);
-        return { success: false };
-        }
-    }
+  }
 
     export async function getFeedbackByInterviewId(
         params: GetFeedbackByInterviewIdParams
