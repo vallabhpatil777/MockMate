@@ -1,39 +1,52 @@
 Project is still in progress : https://mock-mate-iota-taupe.vercel.app/
 
+# MockMate  
+**AI-Powered Mock Interview Platform with Instant Feedback**  
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+MockMate helps candidates prepare for job interviews by simulating AI-driven mock interviews and generating structured feedback. Built with **Next.js**, **Firebase Auth**, and **AI feedback scoring**, it provides an interactive way to practice and improve.  
 
-## Getting Started
+---
 
-First, run the development server:
+## 🚀 Features  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🔐 **Authentication**: Sign up, Sign in, and Sign out with Firebase Auth  
+- 🎯 **AI-Powered Mock Interviews**: Take interviews with AI-generated questions  
+- 📝 **Structured Feedback**: Receive total score, category-wise scores, strengths, and improvement areas  
+- 📊 **Interview History**: Track your past interviews and re-take sessions  
+- 🖥️ **Modern UI**: Built with TailwindCSS and shadcn/ui for a smooth experience  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend**: [Next.js 14](https://nextjs.org/) (App Router)  
+- **Backend/Auth**: [Firebase Authentication](https://firebase.google.com/docs/auth) & [Firestore](https://firebase.google.com/docs/firestore)  
+- **Database**: Firestore (User & Interview data storage)  
+- **UI**: TailwindCSS + shadcn/ui  
+- **AI Feedback**: LLM-based scoring (category-based interview feedback)  
 
-## Learn More
+---
+## 🧪 Usage  
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Sign Up / Sign In  
+- Navigate to `/sign-up` to create a new account  
+- Or go to `/sign-in` if you already have an account  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Start an Interview  
+- From the homepage, click **"Start an Interview"**  
+- The AI interviewer will begin asking specific questions in order to create well-tailored interview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Receive Feedback  
+- At the end of the interview, structured feedback is generated:  
+  - **Total Score** (0–100)  
+  - **Category Scores** (Communication, Technical Knowledge, Problem-Solving, Cultural Fit, Confidence & Clarity)  
+  - **Strengths**  
+  - **Areas for Improvement**  
+  - **Final Assessment**  
 
-## Deploy on Vercel
+### 4. View Past Generated Interviews  
+- Visit **Your Interviews** section on the homepage  
+- Review previous interviews, take an interview and get access to feedback reports  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. Sign Out  
+- Click the **Sign Out** button in the navbar to end your session  
